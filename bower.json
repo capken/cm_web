@@ -1,0 +1,9 @@
+{
+  "name": "caimei-web",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~3.3.1",
+    "angular-bootstrap": "~0.12.1",
+    "angular-ui-router": "~0.2.13"
+  }
+}
