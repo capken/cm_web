@@ -3,6 +3,7 @@
 // generated on 2015-03-11 using generator-gulp-webapp 0.3.0
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
+var ngAnnotate = require('gulp-ng-annotate');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
@@ -30,7 +31,7 @@ gulp.task('html', ['styles'], function () {
 
   return gulp.src('app/*.html')
     .pipe(assets)
-    .pipe($.if('*.js', $.uglify()))
+    .pipe($.if('*.js', ngAnnotate()))
     .pipe($.if('*.css', $.csso()))
     .pipe(assets.restore())
     .pipe($.useref())
