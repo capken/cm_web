@@ -4,8 +4,11 @@
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var ngAnnotate = require('gulp-ng-annotate');
+
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
+
+var proxyMiddleware = require('http-proxy-middleware');
 
 gulp.task('styles', function () {
   return gulp.src('app/styles/main.css')
@@ -29,7 +32,7 @@ gulp.task('jshint', function () {
 gulp.task('html', ['styles'], function () {
   var assets = $.useref.assets({searchPath: ['.tmp', 'app', '.']});
 
-  return gulp.src('app/*.html')
+  return gulp.src('app/**/*.html')
     .pipe(assets)
     .pipe($.if('*.js', ngAnnotate()))
     .pipe($.if('*.js', $.uglify()))
@@ -72,6 +75,8 @@ gulp.task('extras', function () {
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', ['styles', 'fonts'], function () {
+  var proxy = proxyMiddleware('/api/', { target: 'http://localhost:4567' });
+
   browserSync({
     notify: false,
     port: 9000,
@@ -85,7 +90,7 @@ gulp.task('serve', ['styles', 'fonts'], function () {
 
   // watch for changes
   gulp.watch([
-    'app/*.html',
+    'app/**/*.html',
     'app/scripts/**/*.js',
     'app/images/**/*',
     '.tmp/fonts/**/*'
