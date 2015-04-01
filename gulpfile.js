@@ -75,7 +75,7 @@ gulp.task('extras', function () {
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', ['styles', 'fonts'], function () {
-  var proxy = proxyMiddleware('/api/', { target: 'http://localhost:4567' });
+  var proxy = proxyMiddleware('/api', { target: 'http://localhost:4567' });
 
   browserSync({
     notify: false,
@@ -84,7 +84,8 @@ gulp.task('serve', ['styles', 'fonts'], function () {
       baseDir: ['.tmp', 'app'],
       routes: {
         '/bower_components': 'bower_components'
-      }
+      },
+      middleware: [proxy]
     }
   });
 

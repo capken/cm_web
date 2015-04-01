@@ -10,17 +10,21 @@
 
         <div class="input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-          <input ng-model="auth.email" type="text" class="form-control" name="email" placeholder="电子邮箱">
+          <input ng-model="user.email" type="text" class="form-control" name="email" placeholder="电子邮箱">
         </div>
 
         <div class="input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-          <input ng-model="auth.password" type="password" class="form-control" name="password" placeholder="密码">
+          <input ng-model="user.password" type="password" class="form-control" name="password" placeholder="密码">
         </div>
 
-        <a class="btn btn-success">登录</a>
+        <div ng-show="signinFailed">
+          <p class="text-warning bg-warning">用户名或密码不正确，请重新输入!</p>
+        </div>
 
-        <a ng-href="#/signup">注册账号</a>
+        <a ng-click="signin()" class="btn btn-success">登录</a>
+
+        <a ng-href="#/signup/{{user.role}}">注册账号</a>
 
       </form>
     </div>
