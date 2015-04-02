@@ -2,5 +2,13 @@
 
 angular.module('app.session', ['ngCookies']);
 angular.module('app.student', ['ngCookies']);
-angular.module('app', ['app.session', 'app.student', 'ui.router', 'ui.bootstrap']);
+angular.module('app.company', ['ngCookies']);
+
+angular.module('app', [
+  'app.session',
+  'app.student',
+  'app.company',
+  'ui.router',
+  'ui.bootstrap']
+);
 

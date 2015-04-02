@@ -21,6 +21,7 @@ angular.module('app')
           url: '/signout/:role',
           controller: 'SessionCtrl'
         })
+
         .state('student', {
           url: '/student',
           templateUrl: 'views/student/main.html',
@@ -37,6 +38,32 @@ angular.module('app')
         .state('student.resume', {
           url: '/resume',
           templateUrl: 'views/student/resume.html'
+        })
+
+        .state('company', {
+          url: '/company',
+          templateUrl: 'views/company/main.html',
+          controller: 'CompanyCtrl'
+        })
+        .state('company.job', {
+          url: '/job',
+          templateUrl: 'views/company/job.html'
+        })
+        .state('company.applicant', {
+          url: '/applicant',
+          templateUrl: 'views/company/applicant.html'
+        })
+        .state('company.activity', {
+          url: '/activity',
+          templateUrl: 'views/company/activity.html'
+        })
+        .state('company.talent', {
+          url: '/talent',
+          templateUrl: 'views/company/talent.html'
+        })
+        .state('company.profile', {
+          url: '/profile',
+          templateUrl: 'views/company/profile.html'
         });
 
     }

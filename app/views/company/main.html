@@ -13,20 +13,26 @@
       <div id="navbar" collapse="isCollapsed">
         <ul class="nav navbar-nav">
           <li ui-sref-active="active">
-            <a ui-sref="student.update">职位动态</a>
+            <a ui-sref="company.job">职位</a>
           </li>
           <li ui-sref-active="active">
-            <a ui-sref="student.activity">我的活动</a>
+            <a ui-sref="company.applicant">应聘者</a>
           </li>
           <li ui-sref-active="active">
-            <a ui-sref="student.resume">我的简历</a>
+            <a ui-sref="company.activity">活动</a>
+          </li>
+          <li ui-sref-active="active">
+            <a ui-sref="company.talent">人才库</a>
+          </li>
+          <li ui-sref-active="active">
+            <a ui-sref="company.profile">企业信息</a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown" dropdown>
             <a href class="dropdown-toggle" dropdown-toggle>{{user.name}} <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a ui-sref="signout({role:'student'})">退出</a></li>
+              <li><a ui-sref="signout({role:'employee'})">退出</a></li>
             </ul>
           </li>
         </ul>

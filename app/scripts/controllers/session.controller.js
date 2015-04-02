@@ -20,15 +20,16 @@ angular.module('app.session')
       $scope.signin = function() {
         sessionUtil.authenticate($scope.user)
           .success(function(data) {
+            $cookies['userName'] = data.name;
+
             if($scope.user.role === 'student') {
-              $cookies['userName'] = data.name;
               $state.go('student.update');
             } else if($scope.user.role === 'employee') {
-              //$state.go('company.jobs');
+              $state.go('company.job');
             }
           })
           .error(function(data, status) {
-            if(status === 401) {
+            if(status === 404) {
               $scope.signinFailed = true;
             }
           });
