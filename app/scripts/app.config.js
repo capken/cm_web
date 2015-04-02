@@ -10,16 +10,21 @@ angular.module('app')
         .state('signin', {
           url: '/signin/:role',
           templateUrl: 'views/signin.html',
-          controller: 'AuthCtrl'
+          controller: 'SessionCtrl'
         })
         .state('signup', {
           url: '/signup/:role',
           templateUrl: 'views/signup.html',
-          controller: 'AuthCtrl'
+          controller: 'SessionCtrl'
+        })
+        .state('signout', {
+          url: '/signout/:role',
+          controller: 'SessionCtrl'
         })
         .state('student', {
           url: '/student',
-          templateUrl: 'views/student/main.html'
+          templateUrl: 'views/student/main.html',
+          controller: 'StudentCtrl'
         })
         .state('student.update', {
           url: '/update',
