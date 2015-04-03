@@ -20,7 +20,7 @@ angular.module('app.session')
       $scope.signin = function() {
         sessionUtil.authenticate($scope.user)
           .success(function(data) {
-            $cookies['userName'] = data.name;
+            $cookies.userName = data.name;
 
             if($scope.user.role === 'student') {
               $state.go('student.update');

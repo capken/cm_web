@@ -11,11 +11,11 @@ angular.module('app.session')
         });
       },
       signout: function() {
-        delete $cookies['userName'];
+        delete $cookies.userName;
         return $http.delete('/api/session');
       },
       isValid: function() {
-        return angular.isDefined($cookies['userName']);
+        return angular.isDefined($cookies.userName);
       }
     };
   });

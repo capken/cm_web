@@ -9,6 +9,6 @@ angular.module('app.company')
 
     $scope.isCollapsed = false;
     $scope.user = {};
-    $scope.user.name = $cookies['userName'];
+    $scope.user.name = $cookies.userName;
   });
 
